@@ -44,4 +44,23 @@ class TestIndex(TestCase):
         self.assertTemplateUsed(response, 'club/index.html')
 
 
+class ResourcesTestView(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('resources'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('resources'))
+        self.assertTemplateUsed(response, 'club/resources.html')
+
+
+
+class MeetingTestView(TestCase):
+    def test_view_url_accessible_by_name(self):
+        response=self.client.get(reverse('meetings'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_uses_correct_template(self):
+        response=self.client.get(reverse('meetings'))
+        self.assertTemplateUsed(response, 'club/meetings.html')
 
